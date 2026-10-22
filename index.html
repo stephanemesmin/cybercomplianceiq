@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth dark">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberComplianceIQ.fr — Conformité NIS 2 & Supply Chain Automatisée</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>CyberComplianceIQ.fr — La conformité réglementaire, simplement.</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,118 +13,271 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0fdf4',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            900: '#14532d',
+                            blue: '#0082FB',
+                            blueHover: '#0066CC',
+                            navy: '#0F172A',
+                            teal: '#10B981',
+                            cyan: '#06B6D4',
+                            light: '#F8FAFC'
                         },
-                        dark: {
-                            bg: '#0b0f19',
-                            card: '#111827',
-                            border: '#1f293d',
+                        norm: {
+                            nis2: '#0082FB',
+                            iso: '#8B5CF6',
+                            rgpd: '#10B981',
+                            dora: '#0284C7'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .hero-glow-light {
+            background: radial-gradient(circle at 50% 10%, rgba(0, 130, 251, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        .card-saas-shadow {
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
+        }
+        .btn-electric-blue {
+            background-color: #0082FB;
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+        .btn-electric-blue:hover {
+            background-color: #0066CC;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px -4px rgba(0, 130, 251, 0.35);
+        }
     </style>
 </head>
-<body class="bg-dark-bg text-slate-100 antialiased selection:bg-brand-500 selection:text-black">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
 
-    <!-- 1. HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 border-b border-dark-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center text-brand-500 font-extrabold text-xl">
-                    🛡️
+    <!-- 1. NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200/80 transition-all duration-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                
+                <!-- BRAND LOGO (Integrated SVG vector exact replica with fallback to logo.png) -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center group py-2" aria-label="CyberComplianceIQ.fr Accueil">
+                        
+                        <!-- Real Image Tag with SVG Fallback -->
+                        <div class="relative">
+                            <img src="logo.png" 
+                                 alt="CyberComplianceIQ.fr — La conformité réglementaire, simplement." 
+                                 class="h-12 sm:h-16 w-auto object-contain"
+                                 onerror="this.style.display='none'; document.getElementById('svg-logo-fallback').classList.remove('hidden');">
+                            
+                            <!-- SVG Fallback matching your exact logo structure, shield, cyan orbit, gradient, text and badges -->
+                            <div id="svg-logo-fallback" class="hidden flex items-center">
+                                <svg class="h-12 sm:h-16 w-auto" viewBox="0 0 780 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#0066FF"/>
+                                            <stop offset="50%" stop-color="#0082FB"/>
+                                            <stop offset="100%" stop-color="#00E599"/>
+                                        </linearGradient>
+                                        <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#0052CC"/>
+                                            <stop offset="100%" stop-color="#00D2FF"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Shield -->
+                                    <path d="M 55 18 C 85 18, 105 25, 115 35 C 115 85, 105 130, 55 155 C 5 130, -5 85, -5 35 C 5 25, 25 18, 55 18 Z" fill="none" stroke="url(#shieldGrad)" stroke-width="11" stroke-linejoin="round" transform="translate(25, 10)"/>
+                                    <!-- Orbit Ring -->
+                                    <path d="M 20 100 C 20 120, 50 142, 100 130 C 130 122, 140 100, 120 90 C 95 80, 50 82, 30 92" fill="none" stroke="url(#orbitGrad)" stroke-width="8" stroke-linecap="round"/>
+                                    <!-- Padlock Icon inside Shield -->
+                                    <rect x="63" y="75" width="34" height="30" rx="5" fill="#0A2540"/>
+                                    <path d="M 70 75 V 63 C 70 54, 90 54, 90 63 V 75" fill="none" stroke="#0A2540" stroke-width="6" stroke-linecap="round"/>
+                                    <circle cx="80" cy="87" r="3" fill="#FFF"/>
+                                    <!-- Pixel Grid top right of shield -->
+                                    <rect x="130" y="38" width="8" height="8" rx="2" fill="#00D2FF"/>
+                                    <rect x="141" y="38" width="8" height="8" rx="2" fill="#00E599"/>
+                                    <rect x="141" y="49" width="8" height="8" rx="2" fill="#0082FB"/>
+                                    <rect x="152" y="49" width="8" height="8" rx="2" fill="#00E599"/>
+                                    
+                                    <!-- Brand Typography -->
+                                    <text x="175" y="82" font-family="'Inter', sans-serif" font-weight="800" font-size="44" fill="#0A2540" letter-spacing="-1">CyberCompliance<tspan fill="#0082FB">IQ</tspan><tspan font-weight="700" font-size="34" fill="#0A2540">.fr</tspan></text>
+                                    <text x="178" y="112" font-family="'Inter', sans-serif" font-weight="500" font-size="20" fill="#334155">La conformité réglementaire, simplement.</text>
+                                    
+                                    <!-- 4 Badges in Header SVG -->
+                                    <!-- Badge 1: NIS 2 -->
+                                    <g transform="translate(178, 135)">
+                                        <path d="M 12 2 C 18 2, 22 4, 24 7 C 24 17, 22 24, 12 29 C 2 24, 0 17, 0 7 C 2 4, 6 2, 12 2 Z" fill="none" stroke="#0082FB" stroke-width="2.5"/>
+                                        <path d="M 7 14 L 10 17 L 17 10" fill="none" stroke="#0082FB" stroke-width="2.5" stroke-linecap="round"/>
+                                        <text x="30" y="19" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#0A2540">NIS 2</text>
+                                    </g>
+                                    
+                                    <!-- Badge 2: ISO 27001 -->
+                                    <g transform="translate(290, 135)">
+                                        <path d="M 12 2 C 18 2, 22 4, 24 7 C 24 17, 22 24, 12 29 C 2 24, 0 17, 0 7 C 2 4, 6 2, 12 2 Z" fill="none" stroke="#8B5CF6" stroke-width="2.5"/>
+                                        <rect x="8" y="13" width="8" height="7" rx="1" fill="#8B5CF6"/>
+                                        <path d="M 9.5 13 V 10 C 9.5 8, 14.5 8, 14.5 10 V 13" fill="none" stroke="#8B5CF6" stroke-width="1.8"/>
+                                        <text x="30" y="19" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#0A2540">ISO 27001</text>
+                                    </g>
+
+                                    <!-- Badge 3: RGPD -->
+                                    <g transform="translate(435, 135)">
+                                        <path d="M 12 2 C 18 2, 22 4, 24 7 C 24 17, 22 24, 12 29 C 2 24, 0 17, 0 7 C 2 4, 6 2, 12 2 Z" fill="none" stroke="#10B981" stroke-width="2.5"/>
+                                        <circle cx="12" cy="11" r="3" fill="#10B981"/>
+                                        <path d="M 6 20 C 6 16, 18 16, 18 20" fill="none" stroke="#10B981" stroke-width="2"/>
+                                        <text x="30" y="19" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#0A2540">RGPD</text>
+                                    </g>
+
+                                    <!-- Badge 4: DORA -->
+                                    <g transform="translate(560, 135)">
+                                        <path d="M 12 2 C 18 2, 22 4, 24 7 C 24 17, 22 24, 12 29 C 2 24, 0 17, 0 7 C 2 4, 6 2, 12 2 Z" fill="none" stroke="#0284C7" stroke-width="2.5"/>
+                                        <circle cx="12" cy="14" r="2" fill="#0284C7"/>
+                                        <path d="M 12 9 V 12 M 8 16 L 10 15 M 16 16 L 14 15" stroke="#0284C7" stroke-width="2" stroke-linecap="round"/>
+                                        <text x="30" y="19" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#0A2540">DORA</text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <span class="text-xl font-bold tracking-tight text-white">CyberCompliance<span class="text-brand-500">IQ</span><span class="text-xs text-slate-400 font-normal ml-1">.fr</span></span>
-            </div>
-            
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#fonctionnalites" class="hover:text-white transition">Fonctionnalités</a>
-                <a href="#multinormes" class="hover:text-white transition">Normes & Référentiels</a>
-                <a href="#oiv" class="hover:text-white transition">Espace OIV / EE</a>
-                <a href="#tarifs" class="hover:text-white transition">Tarifs</a>
-            </nav>
 
-            <div class="flex items-center space-x-4">
-                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-block text-sm font-medium text-slate-300 hover:text-white">Se connecter</a>
-                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="bg-brand-500 hover:bg-brand-600 text-slate-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition shadow-lg shadow-brand-500/20 inline-block">
-                    Générer mon Attestation NIS 2
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+                    <a href="#fonctionnalites" class="hover:text-brand-blue transition-colors">Fonctionnalités</a>
+                    <a href="#multinormes" class="hover:text-brand-blue transition-colors">Normes & Référentiels</a>
+                    <a href="#tarifs" class="hover:text-brand-blue transition-colors">Tarifs</a>
+                    <a href="#faq" class="hover:text-brand-blue transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Quick Action Shortcuts + Main CTA -->
+                <div class="hidden md:flex items-center space-x-3">
+                    <!-- Shortcut 1: Diagnostic Express -->
+                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200 transition-all hover:shadow-xs">
+                        <span class="mr-1.5 text-sm animate-pulse">⚡</span> Diagnostic Express (3 min)
+                    </a>
+
+                    <!-- Shortcut 2: Espace MSP / DSI -->
+                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200 transition-all">
+                        <span class="mr-1.5 text-xs">🖥️</span> Espace MSP / DSI
+                    </a>
+
+                    <!-- Main CTA -->
+                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center px-4 py-2.5 rounded-xl text-xs font-extrabold text-white btn-electric-blue shadow-md">
+                        <i class="fa-solid fa-certificate mr-2"></i> Générer mon Attestation
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" id="mobile-menu-btn" class="p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none" aria-label="Menu principal">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <div class="space-y-1 pb-3 border-b border-slate-100 font-semibold">
+                <a href="#fonctionnalites" class="block px-3 py-2 rounded-lg text-base text-slate-700 hover:bg-slate-50">Fonctionnalités</a>
+                <a href="#multinormes" class="block px-3 py-2 rounded-lg text-base text-slate-700 hover:bg-slate-50">Normes & Référentiels</a>
+                <a href="#tarifs" class="block px-3 py-2 rounded-lg text-base text-slate-700 hover:bg-slate-50">Tarifs</a>
+                <a href="#faq" class="block px-3 py-2 rounded-lg text-base text-slate-700 hover:bg-slate-50">FAQ</a>
+            </div>
+
+            <div class="space-y-2 pt-1">
+                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                    <span class="mr-2">⚡</span> Diagnostic Express 3 min
+                </a>
+                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center justify-center w-full px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-800 border border-slate-200">
+                    <span class="mr-2">🖥️</span> Espace MSP / DSI / Démo OIV
+                </a>
+                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center justify-center w-full px-4 py-3 rounded-xl text-xs font-extrabold text-white btn-electric-blue">
+                    <i class="fa-solid fa-certificate mr-2"></i> Générer mon Attestation
                 </a>
             </div>
         </div>
     </header>
 
     <!-- 2. HERO SECTION -->
-    <section class="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden hero-glow-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
-            <div class="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 rounded-full text-brand-500 text-xs sm:text-sm font-semibold mb-8">
-                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            <!-- SOUVERAINETÉ BADGE -->
+            <div class="inline-flex items-center space-x-2 bg-white border border-brand-blue/20 px-4 py-2 rounded-full text-brand-blue text-xs sm:text-sm font-bold mb-8 shadow-xs">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-teal animate-pulse"></span>
                 <span>100% Souverain & Hébergé en France (SecNumCloud Ready)</span>
             </div>
 
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
-                Prouvez votre conformité <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-emerald-300">NIS 2 & DORA</span>. Sécurisez vos contrats.
+            <!-- MAIN HEADLINE -->
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-brand-navy max-w-4xl mx-auto leading-tight">
+                Prouvez votre conformité <span class="text-brand-blue">NIS 2, DORA & ISO 27001</span>.
             </h1>
 
-            <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
-                La plateforme automatisée qui transforme votre infrastructure et vos procédures en preuves irréfutables pour vos donneurs d'ordres. Sans audit interminable, avec correctifs prêts à déployer.
+            <!-- SUBTITLE -->
+            <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+                La plateforme automatisée qui transforme votre infrastructure et vos procédures en preuves irréfutables pour vos donneurs d'ordres. <span class="text-brand-navy font-bold">La conformité réglementaire, simplement.</span>
             </p>
 
+            <!-- CALL TO ACTIONS -->
             <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-slate-950 font-bold px-8 py-4 rounded-xl text-base transition shadow-xl shadow-brand-500/25 inline-block">
+                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto btn-electric-blue font-extrabold px-8 py-4 rounded-xl text-base shadow-lg inline-block">
                     Demander mon diagnostic gratuit (3 min)
                 </a>
-                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-dark-card hover:bg-slate-800 text-slate-300 border border-dark-border font-medium px-8 py-4 rounded-xl text-base transition inline-block">
+                <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-semibold px-8 py-4 rounded-xl text-base transition shadow-xs inline-block">
                     Démo Console OIV / Grand Compte
                 </a>
             </div>
 
-            <p class="mt-4 text-xs text-slate-500">Aucun système à installer • Diagnostic immédiat • Export PAS PDF inclus</p>
+            <p class="mt-4 text-xs text-slate-500 font-medium">Aucun système à installer • Diagnostic immédiat • Export PAS PDF inclus</p>
 
-            <!-- Dashboard Preview / Mockup -->
-            <div class="mt-16 max-w-5xl mx-auto p-2 bg-gradient-to-b from-dark-border to-transparent rounded-2xl border border-dark-border">
-                <div class="bg-dark-card rounded-xl p-6 border border-dark-border text-left shadow-2xl">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-dark-border pb-6 gap-4">
+            <!-- DASHBOARD MOCKUP PREVIEW -->
+            <div class="mt-14 max-w-5xl mx-auto p-3 bg-gradient-to-b from-brand-blue/10 via-slate-200/50 to-white rounded-3xl border border-slate-200/90 card-saas-shadow">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 text-left shadow-xs">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-100 pb-6 gap-4">
                         <div>
-                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-3 py-1 rounded-full font-semibold">
-                                CONFORME — ÉLIGIBLE AUX CONTRATS GRANDS COMPTES
+                            <span class="bg-emerald-50 text-brand-teal border border-brand-teal/30 text-xs px-3 py-1 rounded-full font-bold">
+                                ✓ CONFORME — ÉLIGIBLE AUX CONTRATS GRANDS COMPTES
                             </span>
-                            <h3 class="text-xl font-bold text-white mt-2">Statut de Conformité NIS 2 & Supply Chain</h3>
-                            <p class="text-xs text-slate-400">Dernier scan automatique : Aujourd'hui à 11:30</p>
+                            <h3 class="text-2xl font-extrabold text-brand-navy mt-2">Statut de Conformité NIS 2 & Supply Chain</h3>
+                            <p class="text-xs text-slate-500 font-medium mt-1">Dernier scan automatique d'infrastructure : Aujourd'hui à 11:30</p>
                         </div>
-                        <div class="flex items-center space-x-4 bg-dark-bg px-6 py-3 rounded-xl border border-dark-border">
-                            <span class="text-3xl font-extrabold text-brand-500">88%</span>
-                            <span class="text-xs text-slate-400 font-medium">Score de Maturité<br>Global</span>
+                        <div class="flex items-center space-x-4 bg-slate-50 px-6 py-4 rounded-2xl border border-slate-200">
+                            <span class="text-4xl font-black text-brand-blue">88%</span>
+                            <span class="text-xs text-slate-600 font-semibold leading-tight">Score de Maturité<br>Global Cyber</span>
                         </div>
                     </div>
 
                     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-dark-bg p-4 rounded-lg border border-dark-border flex justify-between items-center">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center">
                             <div>
-                                <span class="text-xs text-red-400 font-bold uppercase tracking-wider">Action Requise</span>
-                                <h4 class="text-sm font-semibold text-white mt-1">Liaisons Web non chiffrées (TLS 1.0)</h4>
-                                <p class="text-xs text-slate-400">Impact : Blocage lors des contrôles clients</p>
+                                <span class="text-[11px] text-rose-600 font-extrabold uppercase tracking-wider">Action Requise</span>
+                                <h4 class="text-sm font-bold text-slate-800 mt-0.5">Liaisons Web non chiffrées (TLS 1.0)</h4>
+                                <p class="text-xs text-slate-500">Impact : Blocage lors des contrôles clients</p>
                             </div>
-                            <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="bg-brand-500/10 text-brand-500 hover:bg-brand-500/20 text-xs font-bold px-3 py-2 rounded-lg border border-brand-500/30 inline-block">
+                            <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="btn-electric-blue text-xs font-bold px-3 py-2 rounded-lg transition inline-block">
                                 ⚡ Script .ps1
                             </a>
                         </div>
-                        <div class="bg-dark-bg p-4 rounded-lg border border-dark-border flex justify-between items-center">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center">
                             <div>
-                                <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Conforme</span>
-                                <h4 class="text-sm font-semibold text-white mt-1">Politique de Sécurité (PSSI)</h4>
-                                <p class="text-xs text-slate-400">Générée & signée électroniquement</p>
+                                <span class="text-[11px] text-brand-teal font-extrabold uppercase tracking-wider">Conforme</span>
+                                <h4 class="text-sm font-bold text-slate-800 mt-0.5">Politique de Sécurité (PSSI)</h4>
+                                <p class="text-xs text-slate-500">Générée & signée électroniquement</p>
                             </div>
-                            <span class="text-emerald-400 text-lg">✓</span>
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-brand-teal font-extrabold flex items-center justify-center text-sm">✓</span>
                         </div>
                     </div>
                 </div>
@@ -134,34 +287,34 @@
     </section>
 
     <!-- 3. PAIN POINTS / LE PROBLÈME -->
-    <section class="py-20 bg-dark-card border-y border-dark-border" id="fonctionnalites">
+    <section class="py-20 bg-white border-y border-slate-200" id="fonctionnalites">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-white">Un donneur d'ordre ou un OIV vous exige un dossier de conformité NIS 2 sous 30 jours ?</h2>
-                <p class="mt-4 text-slate-400">Ne laissez pas les contraintes réglementaires paralyser votre activité commerciale.</p>
+                <h2 class="text-3xl font-extrabold text-brand-navy">Un donneur d'ordre ou un OIV vous exige un dossier de conformité NIS 2 sous 30 jours ?</h2>
+                <p class="mt-4 text-slate-600 font-medium">Ne laissez pas les contraintes réglementaires paralyser votre activité commerciale.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-dark-bg p-8 rounded-2xl border border-dark-border">
-                    <div class="w-12 h-12 bg-red-500/10 text-red-400 rounded-xl flex items-center justify-center text-xl font-bold mb-6">⚠️</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Risque de Déférencement</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-brand-blue/40 transition card-saas-shadow">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl font-bold mb-6">⚠️</div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Risque de Déférencement</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
                         L'Article 21 de NIS 2 oblige les grands comptes à vérifier la sécurité de leurs sous-traitants. Sans dossier de preuve (PAS), vous risquez l'exclusion des appels d'offres.
                     </p>
                 </div>
 
-                <div class="bg-dark-bg p-8 rounded-2xl border border-dark-border">
-                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-xl font-bold mb-6">📋</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Jungle Réglementaire</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-brand-cyan/40 transition card-saas-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-6">📋</div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Jungle Réglementaire</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
                         Les questionnaires de 150 questions s'accumulent. Un cabinet d'audit traditionnel facturera entre 10 000 € et 25 000 € pour un simple rapport théorique.
                     </p>
                 </div>
 
-                <div class="bg-dark-bg p-8 rounded-2xl border border-dark-border">
-                    <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-xl font-bold mb-6">🛠️</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Complexité Technique</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-brand-teal/40 transition card-saas-shadow">
+                    <div class="w-12 h-12 bg-emerald-100 text-brand-teal rounded-xl flex items-center justify-center text-xl font-bold mb-6">🛠️</div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Complexité Technique</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
                         Détecter les failles ne suffit pas. CyberComplianceIQ génère les scripts d'auto-correction (.ps1/.sh) et les fiches d'action pour votre prestataire IT.
                     </p>
                 </div>
@@ -173,104 +326,115 @@
     <section class="py-20" id="multinormes">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-white">Une seule évaluation. Toutes vos normes validées.</h2>
-                <p class="mt-4 text-slate-400">Notre moteur de mapping croisé alimente simultanément l'ensemble de vos exigences de conformité.</p>
+                <h2 class="text-3xl font-extrabold text-brand-navy">Une seule évaluation. Toutes vos normes validées.</h2>
+                <p class="mt-4 text-slate-600 font-medium">Notre moteur de mapping croisé alimente simultanément l'ensemble de vos exigences de conformité.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
-                    <span class="text-brand-500 font-bold text-xs uppercase tracking-wider">Directive UE</span>
-                    <h3 class="text-xl font-bold text-white mt-1 mb-2">NIS 2</h3>
-                    <p class="text-slate-400 text-xs">Attestation sous-traitant & PSSI sur-mesure pour les Entités Essentielles/Importantes.</p>
+                <!-- NIS 2 Card -->
+                <div class="p-6 rounded-2xl bg-white border border-norm-nis2/30 hover:border-norm-nis2 transition card-saas-shadow relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-norm-nis2 flex items-center justify-center font-extrabold text-xl mb-4">✓</div>
+                    <span class="text-norm-nis2 font-extrabold text-xs uppercase tracking-wider">Directive UE</span>
+                    <h3 class="text-xl font-bold text-brand-navy mt-1 mb-2">NIS 2</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Attestation sous-traitant & PSSI sur-mesure pour les Entités Essentielles et Importantes.</p>
                 </div>
-                <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
-                    <span class="text-blue-400 font-bold text-xs uppercase tracking-wider">Secteur Financier</span>
-                    <h3 class="text-xl font-bold text-white mt-1 mb-2">DORA</h3>
-                    <p class="text-slate-400 text-xs">Registre des risques IT tiers (ICT Risk) pour banques, assurances et leurs prestataires TI.</p>
+
+                <!-- ISO 27001 Card -->
+                <div class="p-6 rounded-2xl bg-white border border-norm-iso/30 hover:border-norm-iso transition card-saas-shadow relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-norm-iso flex items-center justify-center font-extrabold text-xl mb-4">🔒</div>
+                    <span class="text-norm-iso font-extrabold text-xs uppercase tracking-wider">Norme Internationale</span>
+                    <h3 class="text-xl font-bold text-brand-navy mt-1 mb-2">ISO 27001</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Génération automatique de la Déclaration d'Applicabilité (SoA) et suivi des 93 contrôles.</p>
                 </div>
-                <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
-                    <span class="text-purple-400 font-bold text-xs uppercase tracking-wider">Données Personnelles</span>
-                    <h3 class="text-xl font-bold text-white mt-1 mb-2">RGPD</h3>
-                    <p class="text-slate-400 text-xs">Registre des traitements (Art. 30) et Analyse d'Impact relatives à la protection des données.</p>
+
+                <!-- RGPD Card -->
+                <div class="p-6 rounded-2xl bg-white border border-norm-rgpd/30 hover:border-norm-rgpd transition card-saas-shadow relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-norm-rgpd flex items-center justify-center font-extrabold text-xl mb-4">👤</div>
+                    <span class="text-norm-rgpd font-extrabold text-xs uppercase tracking-wider">Données Personnelles</span>
+                    <h3 class="text-xl font-bold text-brand-navy mt-1 mb-2">RGPD</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Registre des traitements (Art. 30) et Analyse d'Impact relatives à la protection des données.</p>
                 </div>
-                <div class="p-6 rounded-xl bg-dark-card border border-dark-border">
-                    <span class="text-emerald-400 font-bold text-xs uppercase tracking-wider">Norme Internationale</span>
-                    <h3 class="text-xl font-bold text-white mt-1 mb-2">ISO 27001</h3>
-                    <p class="text-slate-400 text-xs">Génération automatique de la Déclaration d'Applicabilité (SoA) et suivi des 93 contrôles.</p>
+
+                <!-- DORA Card -->
+                <div class="p-6 rounded-2xl bg-white border border-norm-dora/30 hover:border-norm-dora transition card-saas-shadow relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-xl bg-sky-50 text-norm-dora flex items-center justify-center font-extrabold text-xl mb-4">🕸️</div>
+                    <span class="text-norm-dora font-extrabold text-xs uppercase tracking-wider">Secteur Financier</span>
+                    <h3 class="text-xl font-bold text-brand-navy mt-1 mb-2">DORA</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Registre des risques IT tiers (ICT Risk) pour banques, assurances et leurs prestataires TI.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 5. GRILLE TARIFAIRE -->
-    <section class="py-20 bg-dark-card border-t border-dark-border" id="tarifs">
+    <section class="py-20 bg-white border-t border-slate-200" id="tarifs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-white">Des tarifs simples et transparents</h2>
-                <p class="mt-4 text-slate-400">Rentabilisez votre abonnement dès le premier appel d'offres remporté.</p>
+                <h2 class="text-3xl font-extrabold text-brand-navy">Des tarifs simples et transparents</h2>
+                <p class="mt-4 text-slate-600 font-medium">Rentabilisez votre abonnement dès le premier appel d'offres remporté.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Starter PME -->
-                <div class="bg-dark-bg p-8 rounded-2xl border border-dark-border flex flex-col justify-between">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition card-saas-shadow">
                     <div>
-                        <h3 class="text-xl font-bold text-white">Starter (PME)</h3>
-                        <p class="text-slate-400 text-xs mt-1">Pour les PME < 50 salariés devant fournir un dossier de preuve client.</p>
+                        <h3 class="text-xl font-bold text-brand-navy">Starter (PME)</h3>
+                        <p class="text-slate-500 text-xs mt-1">Pour les PME &lt; 50 salariés devant fournir un dossier de preuve client.</p>
                         <div class="mt-6">
-                            <span class="text-4xl font-extrabold text-white">149 €</span>
-                            <span class="text-slate-400 text-sm"> / mois HT</span>
+                            <span class="text-4xl font-extrabold text-brand-navy">149 €</span>
+                            <span class="text-slate-500 text-sm font-medium"> / mois HT</span>
                         </div>
-                        <ul class="mt-6 space-y-3 text-xs text-slate-300">
-                            <li>✓ Pack NIS 2 + RGPD</li>
-                            <li>✓ Scans trimestriels d'infrastructure</li>
-                            <li>✓ Scripts d'Auto-Correction (.ps1 / .sh)</li>
-                            <li>✓ Dossier PAS PDF signé électroniquement</li>
+                        <ul class="mt-6 space-y-3 text-xs text-slate-700">
+                            <li class="flex items-center"><span class="text-brand-teal font-extrabold mr-2">✓</span> Pack NIS 2 + RGPD</li>
+                            <li class="flex items-center"><span class="text-brand-teal font-extrabold mr-2">✓</span> Scans trimestriels d'infrastructure</li>
+                            <li class="flex items-center"><span class="text-brand-teal font-extrabold mr-2">✓</span> Scripts d'Auto-Correction (.ps1 / .sh)</li>
+                            <li class="flex items-center"><span class="text-brand-teal font-extrabold mr-2">✓</span> Dossier PAS PDF signé électroniquement</li>
                         </ul>
                     </div>
-                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="mt-8 w-full block text-center bg-dark-card hover:bg-slate-800 text-white font-semibold py-3 rounded-xl text-sm border border-dark-border transition">
+                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="mt-8 w-full block text-center bg-white hover:bg-slate-100 text-brand-navy font-bold py-3.5 rounded-xl text-sm border border-slate-300 transition shadow-xs">
                         Démarrer l'essai
                     </a>
                 </div>
 
                 <!-- Pro (Recommandé) -->
-                <div class="bg-dark-bg p-8 rounded-2xl border-2 border-brand-500 relative flex flex-col justify-between shadow-2xl shadow-brand-500/10">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-slate-950 font-bold text-xs px-3 py-1 rounded-full uppercase">Plus Populaire</span>
+                <div class="bg-white p-8 rounded-2xl border-2 border-brand-blue relative flex flex-col justify-between shadow-xl ring-4 ring-brand-blue/10">
+                    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 btn-electric-blue font-extrabold text-[11px] px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">Plus Populaire</span>
                     <div>
-                        <h3 class="text-xl font-bold text-white">Pro (ETI & SaaS)</h3>
-                        <p class="text-slate-400 text-xs mt-1">Pour les entreprises multi-projets ou soumises à DORA & ISO 27001.</p>
+                        <h3 class="text-xl font-bold text-brand-navy">Pro (ETI & SaaS)</h3>
+                        <p class="text-slate-500 text-xs mt-1">Pour les entreprises multi-projets ou soumises à DORA & ISO 27001.</p>
                         <div class="mt-6">
-                            <span class="text-4xl font-extrabold text-white">349 €</span>
-                            <span class="text-slate-400 text-sm"> / mois HT</span>
+                            <span class="text-4xl font-extrabold text-brand-navy">349 €</span>
+                            <span class="text-slate-500 text-sm font-medium"> / mois HT</span>
                         </div>
-                        <ul class="mt-6 space-y-3 text-xs text-slate-300">
-                            <li>✓ <strong>Multi-Normes : NIS 2, DORA, ISO 27001, RGPD</strong></li>
-                            <li>✓ Scans mensuels automatisés</li>
-                            <li>✓ Intégration Cloud & API</li>
-                            <li>✓ Support prioritaire & Accès Multi-utilisateurs</li>
+                        <ul class="mt-6 space-y-3 text-xs text-slate-700">
+                            <li class="flex items-center"><span class="text-brand-blue font-extrabold mr-2">✓</span> <strong>Multi-Normes : NIS 2, DORA, ISO 27001, RGPD</strong></li>
+                            <li class="flex items-center"><span class="text-brand-blue font-extrabold mr-2">✓</span> Scans mensuels automatisés</li>
+                            <li class="flex items-center"><span class="text-brand-blue font-extrabold mr-2">✓</span> Intégration Cloud & API</li>
+                            <li class="flex items-center"><span class="text-brand-blue font-extrabold mr-2">✓</span> Support prioritaire & Accès Multi-utilisateurs</li>
                         </ul>
                     </div>
-                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="mt-8 w-full block text-center bg-brand-500 hover:bg-brand-600 text-slate-950 font-bold py-3 rounded-xl text-sm transition">
+                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="mt-8 w-full block text-center btn-electric-blue font-extrabold py-3.5 rounded-xl text-sm shadow-md transition">
                         Essayer le Plan Pro
                     </a>
                 </div>
 
                 <!-- Enterprise / OIV -->
-                <div class="bg-dark-bg p-8 rounded-2xl border border-dark-border flex flex-col justify-between" id="oiv">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 flex flex-col justify-between hover:border-slate-300 transition card-saas-shadow">
                     <div>
-                        <h3 class="text-xl font-bold text-white">Enterprise / OIV</h3>
-                        <p class="text-slate-400 text-xs mt-1">Pour les OIV/EE pilotant leur chaîne de sous-traitants (Supply Chain).</p>
+                        <h3 class="text-xl font-bold text-brand-navy">Enterprise / OIV</h3>
+                        <p class="text-slate-500 text-xs mt-1">Pour les OIV/EE pilotant leur chaîne de sous-traitants (Supply Chain).</p>
                         <div class="mt-6">
-                            <span class="text-3xl font-extrabold text-white">15 000 €</span>
-                            <span class="text-slate-400 text-sm"> / an HT</span>
+                            <span class="text-3xl font-extrabold text-brand-navy">15 000 €</span>
+                            <span class="text-slate-500 text-sm font-medium"> / an HT</span>
                         </div>
-                        <ul class="mt-6 space-y-3 text-xs text-slate-300">
-                            <li>✓ <strong>Instance Souveraine On-Premise / SecNumCloud</strong></li>
-                            <li>✓ Console de pilotage pour 100 à 500+ sous-traitants</li>
-                            <li>✓ Isolation stricte & Air-Gapped (Zéro fuite)</li>
-                            <li>✓ Support dédié & SLA Garanti</li>
+                        <ul class="mt-6 space-y-3 text-xs text-slate-700">
+                            <li class="flex items-center"><span class="text-brand-navy font-extrabold mr-2">✓</span> <strong>Instance Souveraine On-Premise / SecNumCloud</strong></li>
+                            <li class="flex items-center"><span class="text-brand-navy font-extrabold mr-2">✓</span> Console de pilotage pour 100 à 500+ sous-traitants</li>
+                            <li class="flex items-center"><span class="text-brand-navy font-extrabold mr-2">✓</span> Isolation stricte & Air-Gapped (Zéro fuite)</li>
+                            <li class="flex items-center"><span class="text-brand-navy font-extrabold mr-2">✓</span> Support dédié & SLA Garanti</li>
                         </ul>
                     </div>
-                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="mt-8 w-full block text-center bg-dark-card hover:bg-slate-800 text-white font-semibold py-3 rounded-xl text-sm border border-dark-border transition">
+                    <a href="https://tally.so/r/GevZVQ" target="_blank" rel="noopener noreferrer" class="mt-8 w-full block text-center bg-white hover:bg-slate-100 text-brand-navy font-bold py-3.5 rounded-xl text-sm border border-slate-300 transition shadow-xs">
                         Demander une Démo
                     </a>
                 </div>
@@ -279,22 +443,38 @@
     </section>
 
     <!-- 6. FOOTER -->
-    <footer class="py-12 border-t border-dark-border text-slate-500 text-xs">
+    <footer class="py-12 border-t border-slate-200 text-slate-500 text-xs bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center space-x-2">
-                <span class="text-white font-bold text-sm">CyberCompliance<span class="text-brand-500">IQ</span>.fr</span>
-                <span>— Sûreté & Conformité Souveraine</span>
+            <div class="flex items-center space-x-3">
+                <span class="font-extrabold text-slate-800 text-sm">CyberComplianceIQ<span class="text-brand-blue">.fr</span></span>
+                <span class="text-slate-400 font-medium">— Sûreté & Conformité Souveraine</span>
             </div>
             
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-slate-300">Mentions Légales</a>
-                <a href="#" class="hover:text-slate-300">Politique de Confidentialité</a>
-                <a href="#" class="hover:text-slate-300">Conformité RGPD</a>
+            <div class="flex space-x-6 font-medium text-slate-600">
+                <a href="#" class="hover:text-brand-blue transition">Mentions Légales</a>
+                <a href="#" class="hover:text-brand-blue transition">Politique de Confidentialité</a>
+                <a href="#" class="hover:text-brand-blue transition">Conformité RGPD</a>
             </div>
 
-            <p>© 2026 CyberComplianceIQ.fr — Tous droits réservés.</p>
+            <p class="font-medium">© 2026 CyberComplianceIQ.fr — Tous droits réservés.</p>
         </div>
     </footer>
 
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            var icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
 </body>
 </html>
